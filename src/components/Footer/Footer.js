@@ -2,6 +2,7 @@ import React from 'react';
 import { Twitter, Facebook } from 'react-feather';
 import styled from 'styled-components/macro';
 import MaxWidthWrapper from '../MaxWidthWrapper';
+import { QUERIES } from '../../constants';
 
 import VisuallyHidden from '../VisuallyHidden';
 
@@ -170,6 +171,12 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
+
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
 `;
 
 const MainNavHeading = styled.h2`

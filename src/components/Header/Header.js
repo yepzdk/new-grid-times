@@ -10,7 +10,7 @@ import Button from '../Button';
 
 const Header = () => {
   return (
-    <header>
+    <Wrapper>
       <SuperHeader>
         <Row>
           <ActionGroup>
@@ -22,28 +22,52 @@ const Header = () => {
             </button>
           </ActionGroup>
           <ActionGroup>
-            <button>
+            <UserButton>
               <User size={24} />
-            </button>
+            </UserButton>
           </ActionGroup>
         </Row>
       </SuperHeader>
       <MainHeader>
         <Logo />
       </MainHeader>
-    </header>
+      <SubscribeGroup>
+        <Button>
+          Subscribe
+        </Button>
+        <UnderlinedLink href="https://www.yepz.dk">Already a subscriber?</UnderlinedLink>
+      </SubscribeGroup>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled(MaxWidthWrapper)`
+  padding: 0;
+
+  @media ${QUERIES.laptopAndUp} {
+    display: flex;
+    align-items: center;
+  }
+`;
 
 const SuperHeader = styled.div`
   padding: 16px 0;
   background: var(--color-gray-900);
   color: white;
+
+  @media ${QUERIES.laptopAndUp} {
+    background: none;
+    color: var(--color-gray-900);
+  }
 `;
 
 const Row = styled(MaxWidthWrapper)`
   display: flex;
   justify-content: space-between;
+
+  @media ${QUERIES.laptopAndUp} {
+    display: block;
+  }
 `;
 
 const ActionGroup = styled.div`
@@ -59,12 +83,39 @@ const ActionGroup = styled.div`
   }
 `;
 
+const UserButton = styled.div`
+  @media ${QUERIES.laptopAndUp} {
+    display: none;
+  }
+`;
+
 const MainHeader = styled(MaxWidthWrapper)`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+`;
+
+const SubscribeGroup = styled.div`
+  display: none;
+
+  @media ${QUERIES.laptopAndUp} {
+    padding-left: 32px;
+    padding-right: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+const UnderlinedLink = styled.a`
+  font-style: italic;
+  text-align: center;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: revert;
+  }
 `;
 
 export default Header;

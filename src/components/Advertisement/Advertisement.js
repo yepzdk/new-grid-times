@@ -20,6 +20,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 8px;
+
+  @media ${QUERIES.tabletOnly} {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
 `;
 
 const Prefix = styled.p`
